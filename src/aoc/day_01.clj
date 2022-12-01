@@ -6,37 +6,31 @@
 (defn read-file
   ([] (read-file "day_01.txt"))
   ([file]
-   (map
-    (partial map read-string)
-    (remove
-     #(= % '(""))
-     (partition-by
-      blank?
-      (split-lines (slurp (resource file))))))))
+   (->> file
+        resource
+        slurp
+        split-lines
+        (partition-by blank?)
+        (remove #(= % '("")))
+        (map #(map read-string %)))))
 
 (defn calories-per-inventory
   [x]
-  (map
-   #(reduce + %)
-   x))
+  (map #(reduce + %) x))
 
 (defn part-1
   "Return the highest number of calories carried by an elf."
   [x]
-  (apply
-   max
-   (calories-per-inventory x)))
+  (apply max (calories-per-inventory x)))
 
 (defn part-2
   "Return the sum of calories carried by the top 3 elves carrying the most."
   [x]
-  (reduce
-   +
-   (take
-    3
-    (sort
-     >
-     (calories-per-inventory x)))))
+  (->> x
+       calories-per-inventory
+       (sort >)
+       (take 3)
+       (reduce +)))
 
 (defn -main
   []
