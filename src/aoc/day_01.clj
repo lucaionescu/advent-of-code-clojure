@@ -1,5 +1,4 @@
 (ns aoc.day-01
-  (:gen-class)
   (:require [clojure.java.io :refer [resource]]
             [clojure.string :refer [blank? split-lines]]))
 
@@ -34,5 +33,6 @@
 
 (defn -main
   []
-  (println (part-1 (read-file)))
-  (println (part-2 (read-file))))
+  (let [x (read-file)]
+    (println (part-1 x))
+    (println (part-2 x))))
