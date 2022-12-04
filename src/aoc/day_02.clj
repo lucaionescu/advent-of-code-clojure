@@ -1,14 +1,11 @@
 (ns aoc.day-02
-  (:require [clojure.java.io :refer [resource]]
-            [clojure.string :refer [split-lines]]))
+  (:require [aoc.utils :refer [read-file]]))
 
-(defn read-file
-  ([] (read-file "day_02.txt"))
+(defn parse-input
+  ([] (parse-input "day_02.txt"))
   ([file]
    (->> file
-        resource
-        slurp
-        split-lines
+        read-file
         (map #(re-seq #"[ABCXYZ]" %)))))
 
 (defn beats?
@@ -61,6 +58,6 @@
 
 (defn -main
   []
-  (let [x (read-file)]
+  (let [x (parse-input)]
     (println (time (part-1 x)))
     (println (time (part-2 x)))))

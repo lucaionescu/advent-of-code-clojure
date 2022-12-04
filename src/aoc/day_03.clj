@@ -1,15 +1,6 @@
 (ns aoc.day-03
-  (:require [clojure.java.io :refer [resource]]
-            [clojure.set :refer [intersection]]
-            [clojure.string :refer [split-lines]]))
-
-(defn read-file
-  ([] (read-file "day_03.txt"))
-  ([file]
-   (->> file
-        resource
-        slurp
-        split-lines)))
+  (:require [aoc.utils :refer [read-file]]
+            [clojure.set :refer [intersection]]))
 
 (defn priority
   [x]
@@ -45,6 +36,6 @@
 
 (defn -main
   []
-  (let [x (read-file)]
+  (let [x (read-file "day_03.txt")]
     (println (time (part-1 x)))
     (println (time (part-2 x)))))
