@@ -17,16 +17,16 @@
                y (range height)]
            (let [tree_size (get-in grid [y x])]
              (or
-       ; check visibility from north
+              ; check visibility from north
               (every? #(< (get-in grid [% x]) tree_size) (range 0 y))
 
-       ; check visibility from south
+              ; check visibility from south
               (every? #(< (get-in grid [% x]) tree_size) (range (inc y) height))
 
-       ; check visibility from east
+              ; check visibility from east
               (every? #(< (get-in grid [y %]) tree_size) (range (inc x) width))
 
-       ; check visibility from west
+              ; check visibility from west
               (every? #(< (get-in grid [y %]) tree_size) (range 0 x))
 
               false)))
