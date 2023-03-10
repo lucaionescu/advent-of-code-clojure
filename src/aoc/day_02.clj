@@ -27,8 +27,7 @@
   [x]
   (->> x
        (map
-        (fn
-          [x]
+        (fn [x]
           (let [opp (keyword (first x))
                 me (keyword (second x))
                 points ({:X 1 :Y 2 :Z 3} me)]
@@ -42,8 +41,7 @@
 (defn part-2
   [x]
   (->> x
-       (map (fn
-              [x]
+       (map (fn [x]
               (let [opp (keyword (first x))
                     me (keyword (second x))
                     loose_against {:A :Z :B :X :C :Y}
