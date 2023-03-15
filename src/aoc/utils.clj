@@ -3,8 +3,12 @@
             [clojure.string :refer [split-lines]]))
 
 (defn read-file
-  ([file]
-   (->> file
-        resource
-        slurp
-        split-lines)))
+  [file]
+  (->> file
+       resource
+       slurp
+       split-lines))
+
+(defn sum
+  [x]
+  (reduce + x))
