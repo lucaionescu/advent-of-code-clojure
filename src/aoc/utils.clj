@@ -12,3 +12,7 @@
 (defn sum
   [x]
   (reduce + x))
+
+(defn manhattan
+  [x y]
+  (sum (map #(abs (- %1 %2)) x y)))
