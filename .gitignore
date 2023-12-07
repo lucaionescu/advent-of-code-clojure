@@ -13,3 +13,4 @@ pom.xml.asc
 .hg/
 ownerproof.txt
 .calva
+scripts/.aoc_token
