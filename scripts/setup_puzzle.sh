@@ -1,7 +1,19 @@
 #!/bin/zsh
 
-today=$(date +"%d")
-year=$(date +"%Y")
+if [ -z "$1" ]
+then
+	today=$(date +"%d")
+else
+	today=$1
+fi
+
+if [ -z "$2" ]
+then
+	year=$(date +"%Y")
+else
+	year=$2
+
+fi
 
 # get puzzle input
 aoc_token=$(cat .aoc_token)
