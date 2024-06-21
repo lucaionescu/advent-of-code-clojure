@@ -12,7 +12,6 @@ then
 	year=$(date +"%Y")
 else
 	year=$2
-
 fi
 
 # get puzzle input

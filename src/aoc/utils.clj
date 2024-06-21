@@ -12,6 +12,10 @@
   [x]
   (<= (int \0) (int x) (int \9)))
 
+(defn line->ints
+  [x]
+  (map read-string (re-seq #"\d+" x)))
+
 (defn read-file
   [file]
   (->> file
